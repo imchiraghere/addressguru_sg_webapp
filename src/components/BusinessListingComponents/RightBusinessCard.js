@@ -10,7 +10,7 @@ export default function RightBusinessCard() {
         Explore the Top <span className="text-orange-500">Coaching Centers</span>
       </h2>
       <p className="text-[10px] mb-4">
-        You&apos;ll receive the contact details instantly, at no cost
+        You will receive the contact details instantly, at no cost
       </p>
 
       <p className="text-xs font-semibold text-gray-700 mb-2">
