@@ -6,11 +6,11 @@ export default function RightBusinessCard() {
 
   return (
     <div className="w-xs bg-orange-50 p-6 rounded-xl shadow-lg ">
-      <h2 className=" text-sm font-bold text-gray-800 mb-1">
+      <h2 className="text-sm font-bold text-gray-800 mb-1">
         Explore the Top <span className="text-orange-500">Coaching Centers</span>
       </h2>
-      <p className=" text-[10px] mb-4">
-        You'll receive the contact details instantly, at no cost
+      <p className="text-[10px] mb-4">
+        You&apos;ll receive the contact details instantly, at no cost
       </p>
 
       <p className="text-xs font-semibold text-gray-700 mb-2">
