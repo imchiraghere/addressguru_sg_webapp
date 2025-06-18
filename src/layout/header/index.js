@@ -5,10 +5,17 @@ import Image from "next/image";
 import SearchBar from "@/components/SearchBar";
 import { usePathname } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import { API_URL } from "@/services/constants";
+import axios from "axios";
+import UserLogin from "@/components/UserLogin/UserLogin";
 
-const Header = () => {
+const Header = ({data}) => {
+  
+console.log("cities data",data)
+
   const [open, setOpen] = useState(false); // animation state
   const [showSidebar, setShowSidebar] = useState(false); // mounting control
+  const [showLogin, setShowLogin] = useState(false)
   const sidebarRef = useRef(null);
   const pathname = usePathname();
 
@@ -73,7 +80,6 @@ const Header = () => {
     setShowSidebar(true);
     setTimeout(() => setOpen(true), 10); // enable animation
   };
-
   const handleCloseSidebar = () => {
     setOpen(false);
     setTimeout(() => setShowSidebar(false), 300); // unmount after animation
@@ -92,6 +98,9 @@ const Header = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+
+
 
   return (
     <div className="h-[70px] z-50 bg-white w-full flex items-center relative justify-between px-7 shadow-md">
@@ -130,13 +139,13 @@ const Header = () => {
       {pathname === "/" ? (
         <div
           ref={searchRef}
-          className="absolute 2xl:left-[280px] min-xl:left-[170px] top-[195px] z-50 transition-all duration-300"
+          className="absolute 2xl:left-[320px] min-xl:left-[170px] top-[195px] z-50 transition-all duration-300"
         >
-          <SearchBar />
+          <SearchBar data={data} />
         </div>
       ) : (
-        <div className="fixed left-[240px] top-[9px]  z-50 border-2 border-gray-200 rounded-full scale-80">
-          <SearchBar />
+        <div className="absolute left-[240px] 2xl:left-[280px] top-[9px]  z-50 border-2 border-gray-200 rounded-full scale-80">
+          <SearchBar data={data} />
         </div>
       )}
 
@@ -166,13 +175,25 @@ const Header = () => {
           <button className="border-2 max-md:hidden border-[#EE7630] text-[#EE7630] px-3 py-1.5 rounded-lg capitalize">
             post free ads +
           </button>
-          <button className="uppercase px-4 py-2 bg-[#0040FF] text-white rounded-xl">
+          <button onClick={()=>setShowLogin(true)} className="uppercase px-4 py-2 cursor-pointer bg-[#0040FF] text-white rounded-xl">
             login
           </button>
         </div>
       </div>
+   
+
+      {
+        showLogin && <UserLogin setShowLogin={setShowLogin} />
+
+      }
     </div>
   );
 };
+
+// export default Header;
+
+
+
+
 
 export default Header;

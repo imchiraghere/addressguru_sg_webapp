@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
         {/* Fixed header, centered */}
         <div className="fixed top-0 left-0 right-0 z-50 flex justify-center">
           <div className="w-full max-w-[2000px]">
-            <Header />
+            <Header data={pageProps?.cities} />
           </div>
         </div>
 
@@ -27,3 +27,5 @@ export default function App({ Component, pageProps }) {
     </div>
   );
 }
+
+

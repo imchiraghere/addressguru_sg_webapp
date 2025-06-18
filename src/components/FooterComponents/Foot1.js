@@ -26,7 +26,7 @@ const quickLinks = [
 
 const Foot1 = () => {
   return (
-    <div className=" flex pl-20 gap-20  w-full ">
+    <div className=" flex pl-20 justify-between  w-full ">
       {/* first section */}
       <div className=" w-xs flex-col flex  text-center ">
         {/* Logo */}

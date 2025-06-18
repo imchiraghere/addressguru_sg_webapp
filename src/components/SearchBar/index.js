@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Typewriter from "typewriter-effect";
+import CityDropdown from "../CityDropdown";
 
-const SearchBar = () => {
+const SearchBar = ({data}) => {
   const placeholders = [
     "What are you looking for?",
-    "Search for banquet halls",
-    "Search for jobs",
-    "Search for real estate",
+    "Restraunts Near Me",
+    "Hotels in Dehradun",
+    // "Search for real estate",
   ];
 
   const [inputValue, setInputValue] = useState("");
@@ -15,9 +16,9 @@ const SearchBar = () => {
   const showTypewriter = !isFocused && inputValue === "";
 
   return (
-    <div className="w-[570px] h-[50px] rounded-full relative bg-white flex items-center px-5 shadow-md overflow-hidden">
+    <div className="w-[570px] h-[50px] rounded-full relative bg-white flex items-center px-5 shadow-md ">
       {/* City Section */}
-      <span className="text-[#FF6E04] font-bold flex gap-3">
+      {/* <span className="text-[#FF6E04] font-bold flex gap-3">
         <p>Dehradun</p>
         <svg
           className="relative top-2.5"
@@ -34,7 +35,8 @@ const SearchBar = () => {
             fill="#FF6E04"
           />
         </svg>
-      </span>
+      </span> */}
+      <CityDropdown data={data} />
 
       <span className="h-full bg-gray-200 w-0.5 mx-4"></span>
 

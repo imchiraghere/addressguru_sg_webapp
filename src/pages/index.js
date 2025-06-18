@@ -6,6 +6,9 @@ import PopularServices from "@/components/PopularServices";
 import RecentBusinessCard from "@/components/RecentBusinessCard";
 import RecentJobCard from "@/components/RecentJobCard";
 import RecentListingCard from "@/components/RecentListingCard";
+import SearchBar from "@/components/SearchBar";
+import { API_URL } from "@/services/constants";
+import axios from "axios";
 import Image from "next/image";
 
 export default function Home() {
@@ -19,6 +22,8 @@ export default function Home() {
           <h1 className="text-center w-full my-6  text-[#212121] ">
             Popular Categories
           </h1>
+
+      
 
           {/* popular categories with icons  */}
 
@@ -94,4 +99,23 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+
+export async function getServerSideProps() {
+  try {
+    const res = await axios.get(`${API_URL}/api/cities`);
+    return {
+      props: {
+        cities: res.data, // Pass the fetched cities as props
+      },
+    };
+  } catch (error) {
+    console.error("SSR error:", error);
+    return {
+      props: {
+        cities: [],
+      },
+    };
+  }
 }
