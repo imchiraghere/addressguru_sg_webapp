@@ -22,25 +22,35 @@ const BusinessCard = () => {
 
   return (
     <div>
-      <div className=" w-[99%]   rounded-xl p-3 py-5 border border-gray-100  flex gap-4 shadow-lg bg-white">
+      <div className=" w-[99%]   rounded-xl p-3 border relative border-gray-100  flex gap-4 shadow-lg bg-white">
         {/* Left Image */}
-        <div className="min-w-[180px] h-[220px]  overflow-hidden ">
+        <div className="w-[160px] h-[195px] 2xl:w-[190px] 2xl:h-[220px] overflow-hidden ">
           <Image
             src={item?.photo || "/assets/No-Image-Placeholder.svg.png"}
             alt="course poster"
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
             className="h-full w-full object-fill  rounded-xl"
           />
         </div>
 
         {/* Center Content */}
-        <div className="flex flex-col justify-between flex-grow space-y-2">
+        <div className="flex flex-col gap-1.5 2xl:gap-2 ">
           {/* Title */}
-          <h2 className="text-lg font-semibold ">{item?.business_name}</h2>
+          <div className="flex justify-between  items-center ">
+            <h2 className=" whitespace-nowrap 2xl:text-lg font-semibold ">
+              {item?.business_name}
+            </h2>
+
+            <div className="text-xs text-gray-500  whitespace-nowrap  absolute right-7 ">
+              <div className="flex items-center gap-1">
+                <FaUser /> {item?.views || "1145 views"}
+              </div>
+            </div>
+          </div>
 
           {/* Address */}
-          <div className="text-xs text-gray-500 font-semibold flex items-center gap-1">
+          <div className="text-xs 2xl:text-[13.5px] text-gray-500 font-semibold flex items-center gap-1">
             <svg
               width="13"
               height="18"
@@ -78,7 +88,7 @@ const BusinessCard = () => {
           </div>
 
           {/* Ratings & Badges */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4 my-[1px]">
             <div className="flex items-center gap-1 bg-[#3D8727] text-white px-1.5  rounded text-sm">
               <span>{item?.rating || "4.7"}</span>
               <svg
@@ -113,7 +123,7 @@ const BusinessCard = () => {
                 </g>
               </svg>
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs 2xl:text-[13px] text-gray-500">
               {item?.reviews || "150 Review"}
             </p>
             <span className="flex items-center bg-[#EEF7FF] text-[#FF6E04] gap-0.5 py-1.5 px-2 rounded-full text-[11px] font-bold">
@@ -136,7 +146,7 @@ const BusinessCard = () => {
           </div>
 
           {/* Tags */}
-          <div className="flex gap-2 flex-wrap text-[12px] font-medium">
+          <div className="flex gap-2 flex-wrap text-[12px] 2xl:text-[13px] font-medium">
             {item?.tags?.map((tag, idx) => (
               <span
                 key={idx}
@@ -148,7 +158,9 @@ const BusinessCard = () => {
           </div>
 
           {/* Description */}
-          <p className="text-xs font-[500] ">{item?.ad_description}</p>
+          <p className="text-[11px] font-[500] w-md 2xl:text-[13px] 2xl:w-lg ">
+            {item?.ad_description}
+          </p>
 
           {/* Action Buttons */}
           <div className="flex gap-3 items-center mt-1">
@@ -189,7 +201,8 @@ const BusinessCard = () => {
               toggledBgColor="#FF6E04"
               textColor="#FF6E04"
               toggledTextColor="#fff"
-              width="170px"
+              width="150px"
+              height="30px"
             />
 
             {/* enquire now */}
@@ -231,7 +244,7 @@ const BusinessCard = () => {
               borderColor="ffffff"
               bgColor="#0876FE"
               textColor="#fff"
-              width="170px"
+              width="150px"
               onClick={() => {
                 // Custom function when the button is clicked
                 console.log("Enquire Now clicked");
@@ -243,7 +256,7 @@ const BusinessCard = () => {
             <svg
               className="cursor-pointer"
               width="35"
-              height="35"
+              height="30"
               viewBox="0 0 40 40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -266,11 +279,6 @@ const BusinessCard = () => {
         </div>
 
         {/* Right Side Views */}
-        <div className="text-xs text-gray-500 whitespace-nowrap">
-          <div className="flex items-center gap-1">
-            <FaUser /> {item?.views || "1145 views"}
-          </div>
-        </div>
       </div>
     </div>
   );

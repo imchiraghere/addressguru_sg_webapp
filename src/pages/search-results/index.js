@@ -4,6 +4,8 @@ import DiscoverCard from "@/components/BusinessListingComponents/DiscoverCard";
 import FilterBar from "@/components/BusinessListingComponents/FilterBar";
 import RecentCustomerReviewCard from "@/components/BusinessListingComponents/RecentCustomerReviewCard";
 import RightBusinessCard from "@/components/BusinessListingComponents/RightBusinessCard";
+import { API_URL } from "@/services/constants";
+import axios from "axios";
 import React from "react";
 
 const reviews = [
@@ -32,11 +34,14 @@ const reviews = [
 
 const SearchResults = () => {
   return (
-    <div className=" h-auto mb-10 flex flex-col items-center w-full justify-center   bg-[#F8F7F7] ">
-      <div className="flex flex-col w-[85%] bg-white px-5">
+    <div className=" h-auto  flex flex-col items-center w-full justify-center   bg-[#F8F7F7] ">
+      <div className="flex flex-col w-[80%] bg-white pl-3 pb-20 pr-2">
         {/* starting headings */}
         <BreadCrumbs />
-          <h1 className="font-bold text-xl"> Top Coaching Institutes in Dehradun</h1>
+        <h1 className="font-bold text-xl">
+          {" "}
+          Top Coaching Institutes in Dehradun
+        </h1>
 
         {/* filter bar section */}
         <div className="my-4">
@@ -53,7 +58,7 @@ const SearchResults = () => {
             <BusinessCard />
             <BusinessCard />
             <BusinessCard />
-            <DiscoverCard helpful={false} />
+            <DiscoverCard helpful={false} layout={"row"} />
             <BusinessCard />
             <BusinessCard />
             <DiscoverCard helpful={true} />
@@ -66,13 +71,13 @@ const SearchResults = () => {
         </div>
 
         <div className=" h-70 w-full space-y-2 my-5">
-          <div className="flex w-full items-center justify-between">
+          <div className="flex w-[1030px] max-w-[1500px] items-center justify-between">
             <h1 className="text-xl font-semibold">Recent Customer Reviews</h1>
             <button className="text-[#6D6D6D] border rounded-sm text-sm px-3 py-1 font-[500]">
               View More
             </button>
           </div>
-          <div className=" py-2 pl-4 flex justify-between  w-full ">
+          <div className=" py-2 pl-3 flex gap-5  w-full ">
             {reviews.map((item, index) => {
               return <RecentCustomerReviewCard key={index} data={item} />;
             })}
@@ -82,5 +87,23 @@ const SearchResults = () => {
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  try {
+    const res = await axios.get(`${API_URL}/api/cities`);
+    return {
+      props: {
+        cities: res.data, // Pass the fetched cities as props
+      },
+    };
+  } catch (error) {
+    console.error("SSR error:", error);
+    return {
+      props: {
+        cities: [],
+      },
+    };
+  }
+}
 
 export default SearchResults;

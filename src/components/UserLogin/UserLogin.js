@@ -1,11 +1,23 @@
 import React from "react";
+import Image from "next/image";
+import Login from "./Login";
 
-const UserLogin = ({setShowLogin}) => {
+const features = [
+  "1000 Free Messages.",
+  "1 Video Promotion.",
+  "Social sharing links.",
+  "Free SEO Optimization.",
+  "5 to 10 Photos for Free.",
+];
+
+const UserLogin = ({ setShowLogin }) => {
   return (
     <div className="absolute h-screen w-full  backdrop-blur-lg inset-0 z-50 flex items-center justify-center">
-
-        {/* right cross section */}
-      <div onClick={()=>setShowLogin(false)} className="absolute cursor-pointer top-4 right-4 z-50">
+      {/* right cross section */}
+      <div
+        onClick={() => setShowLogin(false)}
+        className="absolute cursor-pointer top-4 right-4 z-50"
+      >
         <svg
           width="38"
           height="38"
@@ -22,25 +34,46 @@ const UserLogin = ({setShowLogin}) => {
         </svg>
       </div>
 
-       {/* user login register and forgot section */}
-       <div className="bg-white rounded-lg w-[50%] shadow-xl h-[75%] max-h-[75vh] flex">
-
+      {/* user login register and forgot section */}
+      <div className="bg-white rounded-lg w-[63%] shadow-xl h-[80%] max-h-[80vh] flex">
         {/* left section */}
-         <div className="h-full w-[45%] ">
-
-         </div>
+        <div className="h-full w-[49%] ">
+          <Login setShowLogin={setShowLogin} />
+        </div>
 
         {/* right image section */}
 
-        <div className="bg-[#a52222] w-[55%] h-[95%] m-2.5 rounded-md">
+        <div className=" w-[55%] relative h-[97%] mt-2 mr-2 ">
+          <div className="absolute z-50 left-10 top-4 ">
+            <h2 className="font-[500] text-xl">
+              {" "}
+              Listing Benefits With{" "}
+              <strong className="text-orange-400">Address Guru</strong>{" "}
+            </h2>
 
+            <ul className="flex flex-wrap list-disc pl-5 w-full mt-4 gap-x-6 gap-y-2">
+              {features.map((item, index) => (
+                <li
+                  key={index}
+                  className="list-item text-[13px] w-[45%]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-
+          <Image
+            src="/assets/Login/laptop.png"
+            alt="laptop-login-image"
+            height={500}
+            width={500}
+            className="absolute h-full rounded-md "
+          />
         </div>
-
-       </div>
+      </div>
     </div>
-  ); 
+  );
 };
 
 export default UserLogin;

@@ -5,7 +5,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className=' flex flex-col items-center '>
+    <div className=' 2xl:w-[80%] absolute 2xl:left-[10%] 2xl:right-[10%] flex flex-col bg-white pt-5 items-center '>
      <Foot1 />
      <Foot2 />
      <Descriptions />

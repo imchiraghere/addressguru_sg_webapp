@@ -2,8 +2,8 @@ import React from 'react';
 
 const InputWithSvg = ({ icon, placeholder }) => {
   return (
-    <div className="flex items-center border border-gray-300 rounded-md overflow-hidden bg-white w-full max-w-md">
-      <div className="flex items-center justify-center px-4  text-gray-400">
+    <div className="flex items-center border border-gray-300 font-[500] rounded-md overflow-hidden text-sm bg-white w-full max-w-md">
+      <div className="flex items-center justify-center px-4  text-gray-700">
         {icon}
       </div>
 

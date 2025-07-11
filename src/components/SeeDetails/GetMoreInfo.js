@@ -13,7 +13,7 @@ const GetMoreInfo = () => {
 
       {/* input section */}
 
-      <div className="px-5 flex flex-col gap-3  ">
+      <div className="px-5 flex flex-col gap-3 text-[#323232]  ">
         <InputWithSvg
           icon={
             <svg

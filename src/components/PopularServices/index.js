@@ -94,7 +94,7 @@ const PopularServices = () => {
       </div>
 
       <div className=" py-8">
-        <div className=" w-full pl-4 flex pr-10  justify-between 2xl:px-4 2xl:pr-15  ">
+        <div className=" w-full pl-4 flex pr-10  justify-between    ">
           {data2.map((item, index) => (
             <CardD key={index} data={item} />
           ))}

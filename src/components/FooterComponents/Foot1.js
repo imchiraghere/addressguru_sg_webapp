@@ -125,7 +125,7 @@ const Foot1 = () => {
                   alt="design"
                   height={1000}
                   width={1000}
-                  className="w-40 h-12  z-50"
+                  className="w-40 h-12  "
                 />
         
                 <Image
@@ -133,7 +133,7 @@ const Foot1 = () => {
                   alt="design"
                   height={1000}
                   width={1000}
-                  className="w-40 h-12  z-50"
+                  className="w-40 h-12 "
                 />
               </div>
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 const CardD = ({ data }) => {
   return (
     <div
-      className=" rounded-md shadow-lg min:w-50 h-3xl min-[1600]:w-[240px] "
+      className=" rounded-md shadow-lg min:w-50 h-3xl min-[1600]:w-[440px] 2xl:w-[240px] "
     >
       <div
         style={{ backgroundColor: data?.color }}

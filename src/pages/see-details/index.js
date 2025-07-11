@@ -46,7 +46,7 @@ const payment = ["cash", "others"];
 const SeeDetails = () => {
   return (
     <div className=" h-auto mb-10 flex flex-col items-center w-full justify-center p  bg-[#F8F7F7] ">
-      <div className="flex flex-col w-[85%] bg-white px-5  ">
+      <div className="flex flex-col w-[80%] bg-white px-5  ">
         {/* breadCrumbs section */}
         <BreadCrumbs />
         {/* image and title and button section */}

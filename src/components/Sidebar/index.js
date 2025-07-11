@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const menuItems = [
   {
@@ -41,6 +42,8 @@ const menuItems = [
         />
       </svg>
     ),
+    link: "/about-us"
+    
   },
   {
     text: "Contact Us",
@@ -70,6 +73,7 @@ const menuItems = [
         />
       </svg>
     ),
+     link: "/contact-us"
   },
   {
     text: "Posting Rules",
@@ -372,7 +376,7 @@ const socialMediaLinks = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({onClose}) => {
   return (
     <div className=" h-[calc(100vh-70px)]  bg-white/95 pl-5 z-50 w-[18rem] flex rounded-br-3xl flex-col">
       <div className="bg-white h-full w-[80%] absolute left-0 z-40 "></div>
@@ -399,13 +403,14 @@ const Sidebar = () => {
       {/* main all nav Items section */}
       <div className="flex flex-col gap-6 w-fit z-40 left-5 relative top-7">
         {menuItems.map((item, index) => (
-          <div
+          <Link onClick={onClose}
+           href={item?.link? item.link : "/"}
             key={index}
             className="flex items-center gap-5 text-black hover:text-orange-500 cursor-pointer"
           >
             <div className="w-4 h-4 text-orange-500">{item.icon}</div>
             <span className="text-sm font-medium">{item.text}</span>
-          </div>
+          </Link>
         ))}
       </div>
 

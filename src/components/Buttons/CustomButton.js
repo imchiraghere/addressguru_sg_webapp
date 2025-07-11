@@ -15,11 +15,11 @@ const CustomButton = ({
   borderWidth = "1px",
   borderStyle = "solid",
   width = "auto",
-  height = "35px",
-  fontSize = "14px",
+  height = "30px",
+  fontSize = "12px",
   padding = "8px 12px",
   fontWeight = 500,
-  borderRadius = "6px",
+  borderRadius = "4px",
   onClick = null,
 }) => {
   const [toggled, setToggled] = useState(false);
@@ -33,6 +33,7 @@ const CustomButton = ({
 
   return (
     <button
+      className="whitespace-nowrap "
       onClick={handleClick}
       style={{
         backgroundColor: isToggled ? toggledBgColor : bgColor,
@@ -46,12 +47,18 @@ const CustomButton = ({
         borderRadius,
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        justifyContent: "center",
         cursor: "pointer",
       }}
     >
-      {isToggled ? toggledIcon : icon}
+       <span className="mr-1">
+         {isToggled ? toggledIcon : icon}
+        
+        </span>
+        <span className="mt-[2px]">
+
       {showToggle ? (isToggled ? toggledText : defaultText) : defaultText}
+        </span>
     </button>
   );
 };
